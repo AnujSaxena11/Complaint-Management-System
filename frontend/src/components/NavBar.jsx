@@ -42,7 +42,6 @@ export default function NavBar(){
     <nav className="bg-white shadow-md border-b border-gray-200 sticky top-0 z-40">
       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
         <Link to={token ? getDashboardLink() : '/login'} className="font-bold text-xl text-gray-900 hover:text-indigo-600 transition flex items-center gap-2">
-          <span className="text-2xl">📋</span>
           <span>ComplaintMS</span>
         </Link>
         <div className="flex items-center gap-6">
@@ -66,12 +65,12 @@ export default function NavBar(){
                   <Link to="/agent/dashboard" className="text-gray-700 hover:text-indigo-600 transition font-medium">Dashboard</Link>
                   <div className="relative inline-block">
                     <button onClick={() => setShowDropdown(s => !s)} className="text-gray-700 hover:text-indigo-600 transition font-medium flex items-center gap-1">
-                      <span>📝 Complaints</span>
+                      <span>Complaints</span>
                       <span className={`transition-transform ${showDropdown ? 'rotate-180' : ''}`}>▼</span>
                     </button>
                     {showDropdown && (
                       <div className="absolute right-0 mt-2 w-96 bg-white rounded-lg shadow-xl z-50 text-gray-800 p-4 border border-gray-200">
-                        <div className="text-sm font-bold text-gray-900 mb-3">📌 Assigned Complaints</div>
+                        <div className="text-sm font-bold text-gray-900 mb-3">Assigned Complaints</div>
                         {quickComplaints.length === 0 ? (
                           <div className="text-sm text-gray-500 text-center py-3">No assigned complaints</div>
                         ) : (

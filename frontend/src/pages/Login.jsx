@@ -47,7 +47,7 @@ export default function Login(){
         {/* Header */}
         <div className="text-center mb-8">
           <div className="inline-block bg-indigo-100 p-3 rounded-full mb-4">
-            <span className="text-4xl">📋</span>
+            <span className="text-4xl">CMS</span>
           </div>
           <h1 className="text-4xl font-bold text-gray-900 mb-2">ComplaintMS</h1>
           <p className="text-gray-600">Streamlined complaint management</p>
@@ -62,7 +62,6 @@ export default function Login(){
 
           {error && (
             <div className="bg-red-50 border border-red-200 text-red-700 p-4 rounded-lg flex items-start gap-3">
-              <span className="text-lg mt-0.5">⚠️</span>
               <span className="text-sm font-medium">{error}</span>
             </div>
           )}
@@ -97,12 +96,10 @@ export default function Login(){
             >
               {loading ? (
                 <>
-                  <span className="animate-spin">⚙️</span>
                   Logging in...
                 </>
               ) : (
                 <>
-                  <span>🔓</span>
                   Login
                 </>
               )}

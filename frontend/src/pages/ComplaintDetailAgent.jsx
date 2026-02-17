@@ -93,7 +93,6 @@ export default function ComplaintDetailAgent(){
   if (!complaint) return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50 flex items-center justify-center">
       <div className="text-center">
-        <div className="text-6xl mb-4">❌</div>
         <p className="text-gray-700 text-xl font-semibold">{error || 'Complaint not found'}</p>
       </div>
     </div>
@@ -114,13 +113,11 @@ export default function ComplaintDetailAgent(){
         {/* Alerts */}
         {error && (
           <div className="mb-6 bg-red-50 border-l-4 border-red-500 p-4 rounded-lg flex items-start gap-3">
-            <span className="text-2xl">❌</span>
             <p className="text-red-700 font-medium">{error}</p>
           </div>
         )}
         {message && (
           <div className="mb-6 bg-green-50 border-l-4 border-green-500 p-4 rounded-lg flex items-start gap-3">
-            <span className="text-2xl">✅</span>
             <p className="text-green-700 font-medium">{message}</p>
           </div>
         )}
@@ -131,7 +128,6 @@ export default function ComplaintDetailAgent(){
             <div>
               <h1 className="text-3xl font-bold text-gray-800 mb-2">{complaint.category}</h1>
               <p className="text-gray-600 flex items-center gap-2">
-                <span>🎫</span>
                 Ticket: <span className="font-mono bg-gray-100 px-3 py-1 rounded">{complaint.ticketId}</span>
               </p>
             </div>
@@ -143,7 +139,6 @@ export default function ComplaintDetailAgent(){
           {/* Description */}
           <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl p-6 mb-8 border border-indigo-100">
             <h3 className="font-semibold text-gray-700 mb-3 flex items-center gap-2">
-              <span>📝</span>
               Description
             </h3>
             <p className="text-gray-800 leading-relaxed">{complaint.desc}</p>
@@ -153,7 +148,6 @@ export default function ComplaintDetailAgent(){
           {complaint.img && (
             <div className="mb-8">
               <h3 className="font-semibold text-gray-700 mb-4 flex items-center gap-2">
-                <span>📸</span>
                 Attachment
               </h3>
               <img src={complaint.img} alt="complaint" className="max-w-md rounded-xl border-2 border-gray-200 shadow-lg" />
@@ -164,7 +158,6 @@ export default function ComplaintDetailAgent(){
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-6 border border-blue-100">
               <h3 className="font-semibold text-gray-700 mb-4 flex items-center gap-2">
-                <span>👤</span>
                 User Information
               </h3>
               <div className="space-y-3">
@@ -181,7 +174,6 @@ export default function ComplaintDetailAgent(){
 
             <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 border border-purple-100">
               <h3 className="font-semibold text-gray-700 mb-4 flex items-center gap-2">
-                <span>📅</span>
                 Timeline
               </h3>
               <div>
@@ -194,7 +186,6 @@ export default function ComplaintDetailAgent(){
           {/* Resolution Message */}
           {complaint.resolutionMessage && (
             <div className="bg-green-50 border-l-4 border-green-500 rounded-lg p-6 mb-8 flex items-start gap-4">
-              <span className="text-3xl flex-shrink-0">✅</span>
               <div>
                 <h3 className="font-semibold text-green-900 mb-2">Resolution Message</h3>
                 <p className="text-green-800 mb-2">{complaint.resolutionMessage}</p>
@@ -207,7 +198,6 @@ export default function ComplaintDetailAgent(){
           {complaint.review && (
             <div className="bg-amber-50 border-l-4 border-amber-500 rounded-lg p-6 mb-8">
               <h3 className="font-semibold text-amber-900 mb-4 flex items-center gap-2">
-                <span>⭐</span>
                 User Feedback & Review
               </h3>
               <div className="space-y-4">
@@ -236,7 +226,7 @@ export default function ComplaintDetailAgent(){
                 <div>
                   <p className="text-sm text-amber-700 font-semibold mb-2">Satisfaction Status</p>
                   <span className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg font-medium ${complaint.review.result === 'Satisfied' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
-                    {complaint.review.result === 'Satisfied' ? '✅ Satisfied' : '⚠️ Not Satisfied'}
+                    {complaint.review.result === 'Satisfied' ? 'Satisfied' : 'Not Satisfied'}
                   </span>
                 </div>
               </div>
@@ -251,7 +241,6 @@ export default function ComplaintDetailAgent(){
                 disabled={updatingStatus}
                 className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
-                <span>⚙️</span>
                 {updatingStatus ? 'Updating...' : 'Start Progress'}
               </button>
             )}
@@ -261,7 +250,6 @@ export default function ComplaintDetailAgent(){
                 onClick={() => setResolveMode(true)}
                 className="bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg hover:from-green-600 hover:to-green-700 transition-all duration-200 flex items-center justify-center gap-2"
               >
-                <span>✅</span>
                 Mark as Resolved
               </button>
             )}
@@ -275,7 +263,6 @@ export default function ComplaintDetailAgent(){
               }`}
               disabled={complaint.status === 'Completed'}
             >
-              <span>💬</span>
               {showChat ? 'Close Chat' : 'Open Chat'}
             </button>
           </div>
@@ -284,12 +271,10 @@ export default function ComplaintDetailAgent(){
           {resolveMode && (
             <form onSubmit={handleResolve} className="bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl p-6 mb-6">
               <h3 className="font-semibold text-lg text-green-900 mb-4 flex items-center gap-2">
-                <span>📝</span>
                 Mark Complaint as Resolved
               </h3>
               <div className="mb-4">
                 <label className="block text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
-                  <span>📋</span>
                   Resolution Message *
                 </label>
                 <textarea
@@ -308,7 +293,6 @@ export default function ComplaintDetailAgent(){
                   disabled={updatingStatus}
                   className="flex-1 bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg hover:from-green-600 hover:to-green-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
-                  <span>✅</span>
                   {updatingStatus ? 'Resolving...' : 'Confirm Resolve'}
                 </button>
                 <button
@@ -319,7 +303,6 @@ export default function ComplaintDetailAgent(){
                   }}
                   className="flex-1 bg-gray-300 text-gray-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-400 hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2"
                 >
-                  <span>❌</span>
                   Cancel
                 </button>
               </div>
@@ -330,7 +313,6 @@ export default function ComplaintDetailAgent(){
           {showChat && (
             <div className="bg-gradient-to-br from-purple-50 to-blue-50 border-2 border-purple-200 rounded-xl p-6">
               <h3 className="font-semibold text-lg text-purple-900 mb-4 flex items-center gap-2">
-                <span>💬</span>
                 Chat with User
               </h3>
               <ChatPortal ticketId={complaint.ticketId} userRole={role} />

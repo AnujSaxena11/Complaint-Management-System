@@ -38,7 +38,6 @@ export default function ChatPortal({ ticketId, userRole }) {
       setError(null)
     } catch (err) {
       console.error('Failed to fetch messages:', err)
-      // Don't show error if it's just a 404 or network issue on initial load
       if (err.response?.status !== 404) {
         setError('Failed to load messages')
       }

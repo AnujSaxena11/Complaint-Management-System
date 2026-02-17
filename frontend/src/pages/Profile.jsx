@@ -83,7 +83,6 @@ export default function Profile(){
   if (loading) return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50 flex items-center justify-center">
       <div className="text-center">
-        <div className="animate-spin text-4xl mb-4">⌛</div>
         <p className="text-gray-600 text-lg">Loading your profile...</p>
       </div>
     </div>
@@ -95,7 +94,7 @@ export default function Profile(){
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-gray-800 flex items-center gap-3">
-            👤 My Profile
+            My Profile
           </h1>
           <p className="text-gray-600 mt-2">Manage your account and view summary</p>
         </div>
@@ -103,7 +102,6 @@ export default function Profile(){
         {/* Alerts */}
         {error && (
           <div className="mb-6 bg-red-50 border-l-4 border-red-500 p-4 rounded-lg flex items-start gap-3">
-            <span className="text-2xl">❌</span>
             <div>
               <p className="font-semibold text-red-800">Error</p>
               <p className="text-red-700">{error}</p>
@@ -112,7 +110,6 @@ export default function Profile(){
         )}
         {message && (
           <div className="mb-6 bg-green-50 border-l-4 border-green-500 p-4 rounded-lg flex items-start gap-3">
-            <span className="text-2xl">✅</span>
             <div>
               <p className="font-semibold text-green-800">Success</p>
               <p className="text-green-700">{message}</p>
@@ -129,7 +126,6 @@ export default function Profile(){
                 {/* Name Card */}
                 <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl p-6 border border-indigo-100">
                   <div className="flex items-center gap-3 mb-3">
-                    <span className="text-2xl">📝</span>
                     <label className="block text-sm font-semibold text-gray-700 uppercase tracking-wide">Name</label>
                   </div>
                   {editing ? (
@@ -148,7 +144,6 @@ export default function Profile(){
                 {/* Email Card */}
                 <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-6 border border-blue-100">
                   <div className="flex items-center gap-3 mb-3">
-                    <span className="text-2xl">📧</span>
                     <label className="block text-sm font-semibold text-gray-700 uppercase tracking-wide">Email</label>
                   </div>
                   <p className="text-lg font-semibold text-gray-800 break-all">{user?.email || 'N/A'}</p>
@@ -157,7 +152,6 @@ export default function Profile(){
                 {/* Member Since Card */}
                 <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 border border-purple-100">
                   <div className="flex items-center gap-3 mb-3">
-                    <span className="text-2xl">📅</span>
                     <label className="block text-sm font-semibold text-gray-700 uppercase tracking-wide">Member Since</label>
                   </div>
                   <p className="text-lg font-semibold text-gray-800">{user?.createdAt ? new Date(user.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : 'N/A'}</p>
@@ -166,7 +160,6 @@ export default function Profile(){
                 {/* Account Type Card */}
                 <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-6 border border-orange-100">
                   <div className="flex items-center gap-3 mb-3">
-                    <span className="text-2xl">👤</span>
                     <label className="block text-sm font-semibold text-gray-700 uppercase tracking-wide">Account Type</label>
                   </div>
                   <p className="text-lg font-semibold text-orange-600 capitalize">{user.role || 'User'}</p>
@@ -181,7 +174,6 @@ export default function Profile(){
                       onClick={handleUpdate}
                       className="flex-1 bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg hover:from-green-600 hover:to-green-700 transition-all duration-200 flex items-center justify-center gap-2"
                     >
-                      <span>💾</span>
                       Save Changes
                     </button>
                     <button
@@ -191,7 +183,6 @@ export default function Profile(){
                       }}
                       className="flex-1 bg-gray-300 text-gray-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-400 hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2"
                     >
-                      <span>❌</span>
                       Cancel
                     </button>
                   </>
@@ -200,7 +191,6 @@ export default function Profile(){
                     onClick={() => setEditing(true)}
                     className="flex-1 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg hover:from-indigo-600 hover:to-indigo-700 transition-all duration-200 flex items-center justify-center gap-2"
                   >
-                    <span>✏️</span>
                     Edit Profile
                   </button>
                 )}
@@ -208,7 +198,6 @@ export default function Profile(){
                   onClick={handleDelete}
                   className="flex-1 bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg hover:from-red-600 hover:to-red-700 transition-all duration-200 flex items-center justify-center gap-2"
                 >
-                  <span>🗑️</span>
                   Delete Account
                 </button>
               </div>
@@ -262,7 +251,6 @@ export default function Profile(){
 
             {/* Info Box */}
             <div className="bg-blue-50 border-l-4 border-blue-500 rounded-lg p-4 flex items-start gap-3">
-              <span className="text-2xl flex-shrink-0">ℹ️</span>
               <div>
                 <p className="font-semibold text-blue-900 mb-1">Account Information</p>
                 <p className="text-blue-800 text-sm">Your profile data is stored securely. You can update your name at any time, but your email cannot be changed.</p>

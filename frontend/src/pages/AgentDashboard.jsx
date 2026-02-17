@@ -45,19 +45,18 @@ export default function AgentDashboard(){
   }
 
   const navigate = useNavigate()
-  if (loading) return <div className="mt-8 text-center text-gray-600"><span className="animate-spin inline-block mr-2">⚙️</span>Loading dashboard...</div>
+  if (loading) return <div className="mt-8 text-center text-gray-600">Loading dashboard...</div>
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50">
       <div className="mt-8">
         <div className="mb-10">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">👨‍💼 Agent Dashboard</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-2">Agent Dashboard</h1>
           <p className="text-gray-600">Manage and resolve assigned complaints</p>
         </div>
 
         {error && (
           <div className="bg-red-50 border border-red-200 text-red-700 p-4 rounded-lg mb-6 flex items-start gap-3">
-            <span className="text-lg mt-0.5">❌</span>
             <span>{error}</span>
           </div>
         )}
@@ -70,7 +69,6 @@ export default function AgentDashboard(){
                 <p className="text-gray-600 text-sm font-medium mb-1">Open Complaints</p>
                 <p className="text-4xl font-bold text-yellow-600">{stats.open}</p>
               </div>
-              <div className="bg-yellow-100 p-3 rounded-lg text-2xl">🔓</div>
             </div>
             <p className="text-xs text-gray-600">Waiting for assignment</p>
           </div>
@@ -81,7 +79,6 @@ export default function AgentDashboard(){
                 <p className="text-gray-600 text-sm font-medium mb-1">In Progress</p>
                 <p className="text-4xl font-bold text-blue-600">{stats.inProgress}</p>
               </div>
-              <div className="bg-blue-100 p-3 rounded-lg text-2xl">⚙️</div>
             </div>
             <p className="text-xs text-gray-600">Currently working on</p>
           </div>
@@ -92,7 +89,6 @@ export default function AgentDashboard(){
                 <p className="text-gray-600 text-sm font-medium mb-1">Resolved</p>
                 <p className="text-4xl font-bold text-green-600">{stats.resolved}</p>
               </div>
-              <div className="bg-green-100 p-3 rounded-lg text-2xl">✅</div>
             </div>
             <p className="text-xs text-gray-600">Completed resolutions</p>
           </div>
@@ -100,11 +96,10 @@ export default function AgentDashboard(){
 
         {/* Recent Complaints */}
         <div className="bg-white rounded-xl shadow-md border border-gray-100 p-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">📋 Your Assigned Complaints</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">Your Assigned Complaints</h2>
           
           {complaints.length === 0 ? (
             <div className="text-center py-12">
-              <p className="text-6xl mb-4">🎉</p>
               <p className="text-gray-700 font-semibold mb-2">No complaints assigned yet</p>
               <p className="text-gray-600">New complaints will appear here once assigned by admin</p>
             </div>

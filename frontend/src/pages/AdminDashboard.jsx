@@ -42,12 +42,11 @@ export default function AdminDashboard(){
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50">
       <div className="mt-8">
         <div className="mb-10">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">👑 Admin Dashboard</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-2">Admin Dashboard</h1>
           <p className="text-gray-600">Manage your complaint system</p>
         </div>
 
         {error && <div className="bg-red-50 text-red-700 p-4 rounded-lg mb-6 border border-red-200 flex items-start gap-3">
-          <span className="text-lg mt-0.5">⚠️</span>
           <span>{error}</span>
         </div>}
 
@@ -59,7 +58,6 @@ export default function AdminDashboard(){
                 <p className="text-gray-600 text-sm font-medium mb-1">Total Users</p>
                 <p className="text-4xl font-bold text-gray-900">{stats.totalUsers}</p>
               </div>
-              <div className="bg-blue-100 p-3 rounded-lg text-2xl">👥</div>
             </div>
             <Link to="/admin/users" className="text-blue-600 hover:text-blue-700 font-medium text-sm flex items-center gap-1">
               View Users <span>→</span>
@@ -72,7 +70,6 @@ export default function AdminDashboard(){
                 <p className="text-gray-600 text-sm font-medium mb-1">Total Agents</p>
                 <p className="text-4xl font-bold text-gray-900">{stats.totalAgents}</p>
               </div>
-              <div className="bg-purple-100 p-3 rounded-lg text-2xl">👨‍💼</div>
             </div>
             <Link to="/admin/agents" className="text-purple-600 hover:text-purple-700 font-medium text-sm flex items-center gap-1">
               Manage Agents <span>→</span>
@@ -85,7 +82,6 @@ export default function AdminDashboard(){
                 <p className="text-gray-600 text-sm font-medium mb-1">Total Complaints</p>
                 <p className="text-4xl font-bold text-gray-900">{stats.totalComplaints}</p>
               </div>
-              <div className="bg-orange-100 p-3 rounded-lg text-2xl">📋</div>
             </div>
             <Link to="/admin/complaints?filter=all" className="text-orange-600 hover:text-orange-700 font-medium text-sm flex items-center gap-1">
               View Complaints <span>→</span>
@@ -95,20 +91,18 @@ export default function AdminDashboard(){
 
         {/* Quick Actions */}
         <div className="bg-white rounded-xl shadow-md border border-gray-100 p-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">⚡ Quick Actions</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">Quick Actions</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Link
               to="/admin/agents"
               className="bg-gradient-to-br from-purple-500 to-purple-600 text-white p-6 rounded-xl hover:shadow-lg transition font-semibold flex items-center justify-center gap-3 group"
             >
-              <span className="text-2xl group-hover:scale-110 transition">👨‍💼</span>
               <span>Manage Agents</span>
             </Link>
             <Link
               to="/admin/complaints"
               className="bg-gradient-to-br from-orange-500 to-orange-600 text-white p-6 rounded-xl hover:shadow-lg transition font-semibold flex items-center justify-center gap-3 group"
             >
-              <span className="text-2xl group-hover:scale-110 transition">📝</span>
               <span>Assign Complaints</span>
             </Link>
           </div>

@@ -6,8 +6,6 @@ const sendEmail = require("../../utils/sendEmail");
 exports.viewComplainByCategory = async (req, res) =>{
     try{
         const complaints = await userComp.find({assignedTo: req.user.id}).populate("userId", "name email");
-        
-        // Fetch reviews for each complaint
         const complaintsWithReviews = await Promise.all(
             complaints.map(async (complaint) => {
                 const review = await complainReview.findOne({ticketId: complaint.ticketId});
@@ -27,8 +25,6 @@ exports.viewComplainByCategory = async (req, res) =>{
         res.status(500).json({message: "Internal server error"});
     }
 }
-
-// view single complaint from userController in userRole
 
 exports.updateStatusInProgress = async (req, res) =>{
     try{

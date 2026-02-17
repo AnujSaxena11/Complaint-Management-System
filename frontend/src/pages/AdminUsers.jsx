@@ -43,7 +43,7 @@ export default function AdminUsers(){
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-gray-800 flex items-center gap-3 mb-4">
-            👥 Users Management
+            Users Management
           </h1>
           <p className="text-gray-600">View and manage all registered users</p>
         </div>
@@ -51,7 +51,6 @@ export default function AdminUsers(){
         {/* Search Bar */}
         <div className="mb-8">
           <div className="relative">
-            <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-2xl">🔍</span>
             <input
               type="text"
               placeholder="Search by name or email..."
@@ -65,7 +64,6 @@ export default function AdminUsers(){
         {/* Error Alert */}
         {error && (
           <div className="mb-6 bg-red-50 border-l-4 border-red-500 p-4 rounded-lg flex items-start gap-3">
-            <span className="text-2xl">❌</span>
             <p className="text-red-700 font-medium">{error}</p>
           </div>
         )}
@@ -74,7 +72,6 @@ export default function AdminUsers(){
         <div className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
           {filteredUsers.length === 0 ? (
             <div className="p-12 text-center">
-              <div className="text-6xl mb-4">👤</div>
               <p className="text-gray-700 text-lg font-semibold">
                 {searchTerm ? 'No users found matching your search' : 'No users found'}
               </p>
@@ -95,7 +92,6 @@ export default function AdminUsers(){
                     <tr key={user._id} className={`border-t border-gray-200 ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'} hover:bg-indigo-50 transition`}>
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-3">
-                          <span className="text-2xl">👤</span>
                           <p className="font-semibold text-gray-900">{user.name}</p>
                         </div>
                       </td>
@@ -105,7 +101,6 @@ export default function AdminUsers(){
                       </td>
                       <td className="px-6 py-4">
                         <span className="bg-gradient-to-r from-green-100 to-green-50 text-green-800 px-4 py-2 rounded-full text-sm font-semibold border border-green-200 flex items-center gap-2 w-fit">
-                          <span>✅</span>
                           Active
                         </span>
                       </td>
@@ -123,7 +118,6 @@ export default function AdminUsers(){
             <p className="text-sm font-semibold text-gray-700 uppercase tracking-wide">Total Users</p>
             <p className="text-4xl font-bold text-indigo-600 mt-2">{filteredUsers.length}</p>
           </div>
-          <span className="text-6xl">👥</span>
         </div>
       </div>
     </div>

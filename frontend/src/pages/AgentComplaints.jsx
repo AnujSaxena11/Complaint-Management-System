@@ -53,7 +53,7 @@ export default function AgentComplaints(){
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-gray-800 flex items-center gap-3">
-            📋 My Assigned Complaints
+            My Assigned Complaints
           </h1>
           <p className="text-gray-600 mt-2">Manage all complaints assigned to you</p>
         </div>
@@ -61,7 +61,6 @@ export default function AgentComplaints(){
         {/* Error Alert */}
         {error && (
           <div className="mb-6 bg-red-50 border-l-4 border-red-500 p-4 rounded-lg flex items-start gap-3">
-            <span className="text-2xl">❌</span>
             <p className="text-red-700 font-medium">{error}</p>
           </div>
         )}
@@ -79,11 +78,11 @@ export default function AgentComplaints(){
               }`}
             >
               <span>
-                {status === 'all' ? '📊' : 
-                 status === 'Open' ? '📝' : 
-                 status === 'In Progress' ? '⚙️' : 
-                 status === 'Resolved' ? '✅' : 
-                 status === 'Completed' ? '🎉' : '🔄'}
+                {status === 'all' ? '' : 
+                 status === 'Open' ? '' : 
+                 status === 'In Progress' ? '' : 
+                 status === 'Resolved' ? '' : 
+                 status === 'Completed' ? '' : ''}
               </span>
               {status === 'all' ? 'All' : status}
             </button>
@@ -94,7 +93,6 @@ export default function AgentComplaints(){
         <div className="space-y-4">
           {filteredComplaints.length === 0 ? (
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-12 text-center">
-              <div className="text-6xl mb-4">📭</div>
               <p className="text-gray-700 text-lg font-semibold">No complaints found</p>
               <p className="text-gray-600 mt-2">There are no complaints for this filter</p>
             </div>
@@ -105,7 +103,6 @@ export default function AgentComplaints(){
                 <div className="flex justify-between items-start mb-6">
                   <div>
                     <h3 className="text-xl font-bold text-gray-800 flex items-center gap-2">
-                      <span>📝</span>
                       {complaint.category}
                     </h3>
                     <p className="text-gray-600 mt-2 leading-relaxed">{complaint.desc.substring(0, 120)}...</p>
@@ -118,28 +115,24 @@ export default function AgentComplaints(){
                 {/* Metadata Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6 pb-6 border-b border-gray-200">
                   <div className="flex items-center gap-3">
-                    <span className="text-2xl">🎫</span>
                     <div>
                       <p className="text-xs font-semibold text-gray-600 uppercase">Ticket ID</p>
                       <p className="font-mono text-sm font-semibold text-gray-800">{complaint.ticketId.substring(0, 12)}...</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className="text-2xl">👤</span>
                     <div>
                       <p className="text-xs font-semibold text-gray-600 uppercase">User</p>
                       <p className="font-semibold text-gray-800">{complaint.userId?.name || 'N/A'}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className="text-2xl">📧</span>
                     <div>
                       <p className="text-xs font-semibold text-gray-600 uppercase">Email</p>
                       <p className="text-sm text-gray-800 break-all">{complaint.userId?.email || 'N/A'}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className="text-2xl">📅</span>
                     <div>
                       <p className="text-xs font-semibold text-gray-600 uppercase">Created</p>
                       <p className="font-semibold text-gray-800">{new Date(complaint.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</p>
@@ -152,7 +145,6 @@ export default function AgentComplaints(){
                   onClick={() => navigate(`/agent/complaint/${complaint.ticketId}`)}
                   className="w-full bg-gradient-to-r from-indigo-500 to-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg hover:from-indigo-600 hover:to-indigo-700 transition-all duration-200 flex items-center justify-center gap-2"
                 >
-                  <span>👁️</span>
                   View Details
                 </button>
               </div>
@@ -167,7 +159,6 @@ export default function AgentComplaints(){
               <p className="text-sm font-semibold text-gray-700 uppercase tracking-wide">Complaints Assigned</p>
               <p className="text-4xl font-bold text-indigo-600 mt-2">{filteredComplaints.length}</p>
             </div>
-            <span className="text-6xl">📋</span>
           </div>
         )}
       </div>

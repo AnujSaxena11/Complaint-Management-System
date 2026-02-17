@@ -97,7 +97,7 @@ export default function AdminComplaints(){
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-gray-800 flex items-center gap-3">
-            {showOnlyUnassigned ? '📋 Complaints to Assign' : '📊 All Complaints'}
+            {showOnlyUnassigned ? 'Complaints to Assign' : 'All Complaints'}
           </h1>
           <p className="text-gray-600 mt-2">{showOnlyUnassigned ? 'Manage unassigned complaints' : 'View all system complaints'}</p>
         </div>
@@ -105,13 +105,11 @@ export default function AdminComplaints(){
         {/* Alerts */}
         {error && (
           <div className="mb-6 bg-red-50 border-l-4 border-red-500 p-4 rounded-lg flex items-start gap-3">
-            <span className="text-2xl">❌</span>
             <p className="text-red-700 font-medium">{error}</p>
           </div>
         )}
         {message && (
           <div className="mb-6 bg-green-50 border-l-4 border-green-500 p-4 rounded-lg flex items-start gap-3">
-            <span className="text-2xl">✅</span>
             <p className="text-green-700 font-medium">{message}</p>
           </div>
         )}
@@ -120,7 +118,6 @@ export default function AdminComplaints(){
         <div className="space-y-4">
           {complaints.length === 0 ? (
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-12 text-center">
-              <div className="text-6xl mb-4">✓</div>
               <p className="text-gray-700 text-lg font-semibold">{showOnlyUnassigned ? '✓ All complaints have been assigned!' : 'No complaints found'}</p>
               <p className="text-gray-600 mt-2">There are no complaints to display at this time.</p>
             </div>
@@ -131,7 +128,6 @@ export default function AdminComplaints(){
                 <div className="flex justify-between items-start mb-6">
                   <div>
                     <h3 className="text-xl font-bold text-gray-800 flex items-center gap-2">
-                      <span>📝</span>
                       {complaint.category}
                     </h3>
                     <p className="text-gray-600 mt-2 leading-relaxed">{complaint.desc.substring(0, 120)}...</p>
@@ -144,28 +140,24 @@ export default function AdminComplaints(){
                 {/* Metadata Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6 pb-6 border-b border-gray-200">
                   <div className="flex items-center gap-3">
-                    <span className="text-2xl">🎫</span>
                     <div>
                       <p className="text-xs font-semibold text-gray-600 uppercase">Ticket ID</p>
                       <p className="font-mono text-sm font-semibold text-gray-800">{complaint.ticketId.substring(0, 12)}...</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className="text-2xl">👤</span>
                     <div>
                       <p className="text-xs font-semibold text-gray-600 uppercase">User</p>
                       <p className="font-semibold text-gray-800">{complaint.userId?.name || 'N/A'}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className="text-2xl">📧</span>
                     <div>
                       <p className="text-xs font-semibold text-gray-600 uppercase">Email</p>
                       <p className="text-sm text-gray-800 break-all">{complaint.userId?.email || 'N/A'}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className="text-2xl">📅</span>
                     <div>
                       <p className="text-xs font-semibold text-gray-600 uppercase">Registered</p>
                       <p className="font-semibold text-gray-800">{new Date(complaint.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</p>
@@ -176,7 +168,6 @@ export default function AdminComplaints(){
                 {/* Assignment Section */}
                 {complaint.assignedTo ? (
                   <div className="bg-gradient-to-r from-green-50 to-emerald-50 border-l-4 border-green-500 rounded-lg p-4 flex items-start gap-4">
-                    <span className="text-2xl flex-shrink-0">✅</span>
                     <div>
                       <p className="text-sm font-semibold text-gray-700">Assigned to</p>
                       <p className="font-bold text-green-700 text-lg">{complaint.assignedTo?.name || 'Agent'}</p>
@@ -188,7 +179,6 @@ export default function AdminComplaints(){
                     onClick={() => handleAssignClick(complaint)}
                     className="w-full bg-gradient-to-r from-indigo-500 to-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg hover:from-indigo-600 hover:to-indigo-700 transition-all duration-200 flex items-center justify-center gap-2"
                   >
-                    <span>🔗</span>
                     Assign to Agent
                   </button>
                 ) : null}
@@ -203,7 +193,6 @@ export default function AdminComplaints(){
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 backdrop-blur-sm">
           <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full">
             <h2 className="text-2xl font-bold text-gray-800 mb-2 flex items-center gap-2">
-              <span>🔗</span>
               Assign Complaint
             </h2>
             <p className="text-gray-600 mb-6">
@@ -213,7 +202,6 @@ export default function AdminComplaints(){
             <form onSubmit={handleAssignSubmit} className="space-y-4">
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
-                  <span>👤</span>
                   Select Agent *
                 </label>
                 <select
@@ -234,7 +222,6 @@ export default function AdminComplaints(){
                 </select>
                 {categoryAgents.length === 0 && (
                   <p className="text-xs text-red-600 mt-2 flex items-center gap-2">
-                    <span>⚠️</span>
                     No agents assigned to this category
                   </p>
                 )}
@@ -246,7 +233,6 @@ export default function AdminComplaints(){
                   disabled={assigningComplaint === selectedComplaint._id || !selectedAgent}
                   className="flex-1 bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg hover:from-green-600 hover:to-green-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
-                  <span>✅</span>
                   {assigningComplaint === selectedComplaint._id ? 'Assigning...' : 'Assign'}
                 </button>
                 <button
@@ -257,7 +243,6 @@ export default function AdminComplaints(){
                   }}
                   className="flex-1 bg-gray-300 text-gray-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-400 hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2"
                 >
-                  <span>❌</span>
                   Cancel
                 </button>
               </div>

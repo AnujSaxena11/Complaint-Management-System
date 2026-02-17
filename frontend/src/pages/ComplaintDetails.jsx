@@ -77,7 +77,6 @@ export default function ComplaintDetails(){
   if(!complaint) return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50 flex items-center justify-center">
       <div className="text-center">
-        <div className="text-6xl mb-4">❌</div>
         <p className="text-gray-700 text-xl font-semibold">Complaint not found</p>
       </div>
     </div>
@@ -102,7 +101,6 @@ export default function ComplaintDetails(){
             <div>
               <h1 className="text-3xl font-bold text-gray-800 mb-2">{complaint.category}</h1>
               <p className="text-gray-600 flex items-center gap-2">
-                <span>🎫</span>
                 Ticket ID: <span className="font-mono bg-gray-100 px-3 py-1 rounded">{complaint.ticketId}</span>
               </p>
             </div>
@@ -114,7 +112,6 @@ export default function ComplaintDetails(){
           {/* Description */}
           <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl p-6 mb-8 border border-indigo-100">
             <h3 className="font-semibold text-gray-700 mb-3 flex items-center gap-2">
-              <span>📝</span>
               Description
             </h3>
             <p className="text-gray-800 leading-relaxed">{complaint.desc}</p>
@@ -124,7 +121,6 @@ export default function ComplaintDetails(){
           {complaint.img && (
             <div className="mb-8">
               <h3 className="font-semibold text-gray-700 mb-4 flex items-center gap-2">
-                <span>📸</span>
                 Attached Image
               </h3>
               <div className="relative group">
@@ -136,14 +132,10 @@ export default function ComplaintDetails(){
           {/* Timeline Section */}
           <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 mb-8 border border-purple-100">
             <h3 className="font-semibold text-gray-700 mb-4 flex items-center gap-2">
-              <span>📅</span>
               Timeline
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="flex items-start gap-4">
-                <div className="bg-purple-500 text-white rounded-full p-3 flex-shrink-0 text-xl">
-                  📝
-                </div>
                 <div>
                   <p className="text-sm text-gray-600">Registered on</p>
                   <p className="font-semibold text-gray-800">{new Date(complaint.createdAt).toLocaleString('en-US', { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</p>
@@ -151,9 +143,6 @@ export default function ComplaintDetails(){
               </div>
               {complaint.resolvedAt && (
                 <div className="flex items-start gap-4">
-                  <div className="bg-green-500 text-white rounded-full p-3 flex-shrink-0 text-xl">
-                    ✅
-                  </div>
                   <div>
                     <p className="text-sm text-gray-600">Resolved on</p>
                     <p className="font-semibold text-gray-800">{new Date(complaint.resolvedAt).toLocaleString('en-US', { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</p>
@@ -166,7 +155,6 @@ export default function ComplaintDetails(){
           {/* Resolution Message */}
           {complaint.resolutionMessage && (
             <div className="bg-green-50 border-l-4 border-green-500 rounded-lg p-6 mb-8 flex items-start gap-4">
-              <span className="text-3xl flex-shrink-0">💬</span>
               <div>
                 <h3 className="font-semibold text-green-900 mb-2">Resolution Message</h3>
                 <p className="text-green-800">{complaint.resolutionMessage}</p>
@@ -184,14 +172,12 @@ export default function ComplaintDetails(){
         {complaint.status === 'Resolved' && (
           <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
             <h2 className="text-2xl font-bold text-gray-800 mb-2 flex items-center gap-2">
-              <span>⭐</span>
               Share Your Feedback
             </h2>
             <p className="text-gray-600 mb-6">Help us improve by rating your experience</p>
 
             {error && (
               <div className="mb-6 bg-red-50 border-l-4 border-red-500 p-4 rounded-lg flex items-start gap-3">
-                <span className="text-2xl">❌</span>
                 <div>
                   <p className="font-semibold text-red-800">Error</p>
                   <p className="text-red-700">{error}</p>
@@ -200,7 +186,6 @@ export default function ComplaintDetails(){
             )}
             {message && (
               <div className="mb-6 bg-green-50 border-l-4 border-green-500 p-4 rounded-lg flex items-start gap-3">
-                <span className="text-2xl">✅</span>
                 <div>
                   <p className="font-semibold text-green-800">Success</p>
                   <p className="text-green-700">{message}</p>
@@ -212,7 +197,6 @@ export default function ComplaintDetails(){
               {/* Rating */}
               <div className="bg-gradient-to-br from-yellow-50 to-amber-50 rounded-xl p-6 border border-yellow-100">
                 <label className="block text-sm font-semibold text-gray-700 mb-4 flex items-center gap-2">
-                  <span>⭐</span>
                   Rating (1-5) *
                 </label>
                 <div className="flex gap-3">
@@ -233,7 +217,6 @@ export default function ComplaintDetails(){
               {/* Feedback Comment */}
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
-                  <span>💬</span>
                   Your Feedback *
                 </label>
                 <textarea
@@ -249,7 +232,6 @@ export default function ComplaintDetails(){
               {/* Resolution Status */}
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
-                  <span>✨</span>
                   Resolution Status *
                 </label>
                 <select
@@ -257,8 +239,8 @@ export default function ComplaintDetails(){
                   onChange={e=>setResult(e.target.value)}
                   className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition bg-white text-gray-800"
                 >
-                  <option value="Satisfied">✅ Satisfied - Issue resolved</option>
-                  <option value="Not Satisfied">⚠️ Not Satisfied - Issue not fully resolved</option>
+                  <option value="Satisfied">Satisfied - Issue resolved</option>
+                  <option value="Not Satisfied">Not Satisfied - Issue not fully resolved</option>
                 </select>
               </div>
 
@@ -268,7 +250,6 @@ export default function ComplaintDetails(){
                 disabled={reviewLoading}
                 className="w-full bg-gradient-to-r from-indigo-500 to-indigo-600 text-white px-6 py-4 rounded-lg font-semibold hover:shadow-lg hover:from-indigo-600 hover:to-indigo-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
-                <span>📤</span>
                 {reviewLoading ? 'Submitting...' : 'Submit Feedback'}
               </button>
             </form>
@@ -277,7 +258,6 @@ export default function ComplaintDetails(){
 
         {complaint.status !== 'Resolved' && complaint.status !== 'Completed' && (
           <div className="bg-blue-50 border-l-4 border-blue-500 rounded-lg p-6 flex items-start gap-4">
-            <span className="text-3xl flex-shrink-0">⏳</span>
             <div>
               <p className="text-blue-900 font-semibold mb-2">Feedback Coming Soon</p>
               <p className="text-blue-800">Feedback will be available once your complaint status becomes <strong>Resolved</strong>.</p>

@@ -13,13 +13,13 @@ const adminRouter = require("./adminRole/routes/adminRoute");
 const mongoose = require("mongoose");
 
 // MongoDB Connection with error handling
-const mongoUri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/CMS';
+const mongoUri = process.env.MONGODB_URI;
 mongoose.connect(mongoUri)
 .then(()=>{
-    console.log("✅ Database connected successfully");
+    console.log("Database connected successfully");
 })
 .catch((e)=>{
-    console.error("❌ Database connection error:", e.message);
+    console.error("Database connection error:", e.message);
     process.exit(1);
 });
 
@@ -31,7 +31,7 @@ const corsOptions = {
   origin: [process.env.FRONTEND_URL || 'http://localhost:5173', 'http://localhost:5174'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  allowedHeaders: ['Content-Type', 'Authorization', 'Access-Control-Allow-Origin']
 };
 app.use(cors(corsOptions));
 
@@ -60,5 +60,5 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, ()=>{
-    console.log(`🚀 Server running on port ${PORT}`);
+    console.log(`Server running on port ${PORT}`);
 });

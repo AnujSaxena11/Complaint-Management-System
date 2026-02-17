@@ -52,7 +52,7 @@ export default function ComplaintsList(){
     setShowCompleted(!showCompleted)
   }
 
-  if(loading) return <div className="mt-8 text-center text-gray-600"><span className="animate-spin inline-block mr-2">⚙️</span>Loading your complaints...</div>
+  if(loading) return <div className="mt-8 text-center text-gray-600">Loading your complaints...</div>
 
   const displayComplaints = showCompleted ? completedComplaints : activeComplaints;
 
@@ -61,18 +61,16 @@ export default function ComplaintsList(){
       <div className="mt-8">
         <div className="flex justify-between items-center mb-8">
           <div>
-            <h1 className="text-4xl font-bold text-gray-900 mb-1">📋 My Complaints</h1>
+            <h1 className="text-4xl font-bold text-gray-900 mb-1">My Complaints</h1>
             <p className="text-gray-600">Track and manage your submitted complaints</p>
           </div>
           <Link to="/create" className="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition font-semibold flex items-center gap-2 group">
-            <span className="group-hover:scale-110 transition">✨</span>
             New Complaint
           </Link>
         </div>
 
         {error && (
           <div className="bg-red-50 text-red-700 p-4 rounded-lg mb-6 border border-red-200 flex items-start gap-3">
-            <span className="text-lg mt-0.5">❌</span>
             <span>{error}</span>
           </div>
         )}
@@ -88,7 +86,6 @@ export default function ComplaintsList(){
             }`}
           >
             <span className="flex items-center gap-2">
-              <span>📝</span>
               Active <span className="bg-opacity-20 bg-white px-2 py-1 rounded text-sm">({activeComplaints.length})</span>
             </span>
           </button>
@@ -102,7 +99,6 @@ export default function ComplaintsList(){
             } disabled:opacity-50`}
           >
             <span className="flex items-center gap-2">
-              <span>✅</span>
               Completed <span className="bg-opacity-20 bg-white px-2 py-1 rounded text-sm">({completedComplaints.length})</span>
             </span>
           </button>
@@ -112,7 +108,6 @@ export default function ComplaintsList(){
         <div className="space-y-4">
           {displayComplaints.length === 0 ? (
             <div className="bg-white rounded-xl shadow-md border border-gray-200 p-12 text-center">
-              <p className="text-6xl mb-4">{showCompleted ? '🎉' : '📝'}</p>
               <p className="text-gray-700 font-semibold mb-2">
                 {showCompleted ? 'No completed complaints' : 'No active complaints yet'}
               </p>

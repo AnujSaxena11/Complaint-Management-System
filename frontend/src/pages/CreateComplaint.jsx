@@ -47,20 +47,18 @@ export default function CreateComplaint(){
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50">
       <div className="mt-8 max-w-3xl mx-auto">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">📝 Register New Complaint</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-2">Register New Complaint</h1>
           <p className="text-gray-600">Tell us about the issue you're facing</p>
         </div>
 
         <div className="bg-white rounded-xl shadow-md border border-gray-100 p-8 space-y-6">
           {error && (
             <div className="bg-red-50 border border-red-200 text-red-700 p-4 rounded-lg flex items-start gap-3">
-              <span className="text-lg mt-0.5">❌</span>
               <span className="text-sm font-medium">{error}</span>
             </div>
           )}
           {message && (
             <div className="bg-green-50 border border-green-200 text-green-700 p-4 rounded-lg flex items-start gap-3">
-              <span className="text-lg mt-0.5">✅</span>
               <span className="text-sm font-medium">{message}</span>
             </div>
           )}
@@ -116,12 +114,10 @@ export default function CreateComplaint(){
             >
               {loading ? (
                 <>
-                  <span className="animate-spin">⚙️</span>
                   Registering...
                 </>
               ) : (
                 <>
-                  <span>✨</span>
                   Register Complaint
                 </>
               )}
@@ -131,7 +127,7 @@ export default function CreateComplaint(){
 
         {/* Info Card */}
         <div className="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-6">
-          <h3 className="font-semibold text-blue-900 mb-2">📋 Tips for better complaints:</h3>
+          <h3 className="font-semibold text-blue-900 mb-2">Tips for better complaints:</h3>
           <ul className="text-sm text-blue-800 space-y-1 ml-4 list-disc">
             <li>Be specific about the location and time</li>
             <li>Describe the issue clearly with details</li>

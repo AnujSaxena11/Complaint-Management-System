@@ -78,7 +78,7 @@ export default function AdminAgents(){
         <div className="flex justify-between items-center mb-8">
           <div>
             <h1 className="text-4xl font-bold text-gray-800 flex items-center gap-3">
-              👷 Agents Management
+              Agents Management
             </h1>
             <p className="text-gray-600 mt-2">Create and manage support agents</p>
           </div>
@@ -86,7 +86,6 @@ export default function AdminAgents(){
             onClick={() => setShowForm(!showForm)}
             className="bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg hover:from-green-600 hover:to-green-700 transition-all duration-200 flex items-center gap-2"
           >
-            <span>{showForm ? '❌' : '➕'}</span>
             {showForm ? 'Cancel' : 'Create Agent'}
           </button>
         </div>
@@ -94,13 +93,12 @@ export default function AdminAgents(){
         {/* Alerts */}
         {error && (
           <div className="mb-6 bg-red-50 border-l-4 border-red-500 p-4 rounded-lg flex items-start gap-3">
-            <span className="text-2xl">❌</span>
             <p className="text-red-700 font-medium">{error}</p>
           </div>
         )}
         {message && (
           <div className="mb-6 bg-green-50 border-l-4 border-green-500 p-4 rounded-lg flex items-start gap-3">
-            <span className="text-2xl">✅</span>
+            
             <p className="text-green-700 font-medium">{message}</p>
           </div>
         )}
@@ -109,14 +107,12 @@ export default function AdminAgents(){
         {showForm && (
           <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 mb-8">
             <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">
-              <span>🆕</span>
               Create New Agent
             </h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
-                    <span>👤</span>
                     Name *
                   </label>
                   <input
@@ -129,7 +125,6 @@ export default function AdminAgents(){
                 </div>
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
-                    <span>📧</span>
                     Email *
                   </label>
                   <input
@@ -142,7 +137,6 @@ export default function AdminAgents(){
                 </div>
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
-                    <span>🔐</span>
                     Password *
                   </label>
                   <input
@@ -155,7 +149,6 @@ export default function AdminAgents(){
                 </div>
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
-                    <span>📂</span>
                     Category *
                   </label>
                   <select
@@ -174,7 +167,6 @@ export default function AdminAgents(){
                 disabled={creating}
                 className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg hover:from-green-600 hover:to-green-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
-                <span>✅</span>
                 {creating ? 'Creating...' : 'Create Agent'}
               </button>
             </form>
@@ -185,7 +177,6 @@ export default function AdminAgents(){
         <div className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
           {agents.length === 0 ? (
             <div className="p-12 text-center">
-              <div className="text-6xl mb-4">👷</div>
               <p className="text-gray-700 text-lg font-semibold">No agents found</p>
               <p className="text-gray-600 mt-2">Create an agent to get started</p>
             </div>
@@ -205,7 +196,6 @@ export default function AdminAgents(){
                     <tr key={agent._id} className={`border-t border-gray-200 ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'} hover:bg-indigo-50 transition`}>
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-3">
-                          <span className="text-2xl">👤</span>
                           <p className="font-semibold text-gray-900">{agent.name}</p>
                         </div>
                       </td>

@@ -96,7 +96,6 @@ exports.assignComplaint = async (req, res) =>{
         if(!complaint){
             return res.status(404).json({ message: "Complaint not found" });
         }
-        // Prevent re-assignment if already assigned
         if (complaint.assignedTo) {
             if (complaint.assignedTo.toString() === agentId) {
                 return res.status(400).json({ message: "Complaint already assigned to this agent" });
